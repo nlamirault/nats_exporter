@@ -1,12 +1,6 @@
 
 APP = nats_exporter
 
-VERSION=$(shell \
-        grep "const Version" version.go \
-        |awk -F'=' '{print $$2}' \
-        |sed -e "s/[^0-9.]//g" \
-	|sed -e "s/ //g")
-
 SHELL = /bin/bash
 
 DIR = $(shell pwd)
@@ -36,7 +30,7 @@ ARCHIVE=$(PACKAGE).tar
 
 .PHONY: help
 help:
-	@echo -e "$(OK_COLOR)==== $(APP) [$(VERSION)] ====$(NO_COLOR)"
+	@echo -e "$(OK_COLOR)==== $(APP) ====$(NO_COLOR)"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(MAKE_COLOR) : %s\n", $$1, $$2}'
 
 clean: ## Cleanup
