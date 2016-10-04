@@ -4,5 +4,6 @@ go:
   - 1.6
 
 script:
+  - make init
   - make build
   - make test
