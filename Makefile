@@ -10,7 +10,7 @@ DOCKER = docker
 GO = go
 
 GOX = gox -os="linux darwin windows freebsd openbsd netbsd"
-GOX_ARGS = "-output={{.Dir}}-$(VERSION)_{{.OS}}_{{.Arch}}"
+GOX_ARGS = "-output={{.Dir}}_{{.OS}}_{{.Arch}}"
 
 NO_COLOR=\033[0m
 OK_COLOR=\033[32;01m
@@ -21,10 +21,7 @@ MAKE_COLOR=\033[33;01m%-20s\033[0m
 
 MAIN = github.com/lovoo/nats_exporter
 SRCS = $(shell git ls-files '*.go' | grep -v '^vendor/')
-EXE = $(shell ls lovoo_exporter-${VERSION}_*)
-
-PACKAGE=$(APP)-$(VERSION)
-ARCHIVE=$(PACKAGE).tar
+EXE = $(shell ls lovoo_exporter_*)
 
 .DEFAULT_GOAL := help
 
