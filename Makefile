@@ -1,11 +1,7 @@
 
 APP = nats_exporter
 
-SHELL = /bin/bash
-
 DIR = $(shell pwd)
-
-DOCKER = docker
 
 GO = go
 
